@@ -54,6 +54,32 @@ GAPPS_PRODUCT_PACKAGES += \
     Photos \
     YouTube
 
+ifneq ($(filter $(TARGET_GAPPS_VARIANT),medium),) # require at least medium
+
+GAPPS_FORCE_BROWSER_OVERRIDES := true
+GAPPS_FORCE_MMS_OVERRIDES := true
+GAPPS_FORCE_WEBVIEW_OVERRIDES := true
+
+GAPPS_PRODUCT_PACKAGES += \
+    Drive \
+    Videos \
+    GoogleCamera \
+    GoogleContacts \
+    LatinImeGoogle
+
+ifneq ($(filter $(call get-allowed-api-levels),23),)
+GAPPS_FORCE_DIALER_OVERRIDES := true
+endif
+
+ifneq ($(filter $(call get-allowed-api-levels),24),)
+GAPPS_PRODUCT_PACKAGES += \
+    GooglePrintRecommendationService \
+    GoogleExtServices \
+    GoogleExtShared
+endif
+
+endif # end medium
+
 ifneq ($(filter $(TARGET_GAPPS_VARIANT),full),) # require at least full
 
 GAPPS_FORCE_BROWSER_OVERRIDES := true

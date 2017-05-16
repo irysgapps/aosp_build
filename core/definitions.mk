@@ -26,9 +26,10 @@ $(if $(filter $(1),pico),pico) \
 $(if $(filter $(1),nano),pico nano) \
 $(if $(filter $(1),micro),pico nano micro) \
 $(if $(filter $(1),mini),pico nano micro mini) \
-$(if $(filter $(1),full),pico nano micro mini full) \
-$(if $(filter $(1),stock),pico nano micro mini full stock) \
-$(if $(filter $(1),super),pico nano micro mini full stock super) \
+$(if $(filter $(1),medium),pico nano micro mini medium) \
+$(if $(filter $(1),full),pico nano micro mini medium full) \
+$(if $(filter $(1),stock),pico nano micro mini medium full stock) \
+$(if $(filter $(1),super),pico nano micro mini medium full stock super) \
 )
 endef
 
